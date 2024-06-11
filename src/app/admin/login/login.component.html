@@ -1,0 +1,33 @@
+<h3>Login</h3>
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" id="form-login" > 
+    <div id="user-data"> 
+        <div class="form-group" style="position: relative;"> 
+          <label>Tài khoản</label> 
+          <input type="email" class="form-control" [(ngModel)]="userData.tenDN" name="user" required minlength="6" #user="ngModel" email>
+          <div *ngIf="user.dirty && !user.valid">
+            <span style="color: red;" *ngIf="user.errors?.['required']">Username không được bỏ trống</span>
+            <span style="color: red;" *ngIf="user.errors?.['minlength']">Username phải trên 6 kí tự</span>
+            <span style="color: red;" *ngIf="user.errors?.['email'] && !user.errors?.['minlength']">Username phải có kí tự đặt biệt</span>   
+          </div>
+          <a 
+            style="cursor: pointer; position: absolute; top: 0; right: 0; font-size: 13px; color: blueviolet; text-decoration: underline;" 
+            (click)="suggest()">Tên đề suất
+          </a> 
+        </div> 
+         
+        <div class="form-group"> 
+          <label>Mật khẩu</label> 
+          <input type="password" class="form-control" [(ngModel)]="userData.matKhau" name="pass" required minlength="6" #pass="ngModel">
+          <div *ngIf="pass.dirty && !pass.valid">
+            <span style="color: red;" *ngIf="pass.errors?.['required']">Password không được bỏ trống</span>
+            <span style="color: red;" *ngIf="pass.errors?.['minlength']">Password phải trên 6 kí tự</span>
+          </div>
+        </div> 
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Đăng Nhập</button> 
+    </div> 
+</form>  
+<div class="d-flex justify-content-end align-items-center">
+  <a href="#" class="btn" id="admin" routerLink="/admin">
+    <i class="fa fa-lock"></i> <span> Admin</span> 
+  </a>
+</div>

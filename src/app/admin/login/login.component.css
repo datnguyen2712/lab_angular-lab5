@@ -1,0 +1,12 @@
+#form-login {
+    width: 500px;
+}
+#form-login .form-group {
+    margin: 15px 0;
+}
+#form-login .ng-dirty.ng-touched.ng-invalid {
+    border-color: red;
+}
+#admin:hover {
+    color: red;
+}

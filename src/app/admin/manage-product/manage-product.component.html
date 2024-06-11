@@ -1,0 +1,53 @@
+<h3>Manager Product</h3>
+<form id="form-product" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Code sản phẩm</label>
+        <input type="number" formControlName="productCode" class="form-control" required>
+        <div *ngIf="productForm.get('productCode')?.dirty && !productForm.get('productCode')?.valid">
+            <span style="color: red;" *ngIf="productForm.get('productCode')?.errors?.['required']">ProductCode không được bỏ trống</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Tên sản phẩm</label>
+        <input type="text" formControlName="productName" class="form-control" required>
+        <div *ngIf="productForm.get('productName')?.dirty && !productForm.get('productName')?.valid">
+            <span style="color: red;" *ngIf="productForm.get('productName')?.errors?.['required']">ProductName không được bỏ trống</span>
+            <span style="color: red;" *ngIf="productForm.get('productName')?.hasError('productNameInvalid')">ProductName có chứa từ ngữ không hợp lệ'</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Mô tả</label>
+        <input type="text" formControlName="description" class="form-control" required>
+        <div *ngIf="productForm.get('description')?.dirty && !productForm.get('description')?.valid">
+            <span style="color: red;" *ngIf="productForm.get('description')?.errors?.['required']">Description không được bỏ trống</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Giá sản phẩm</label>
+        <input type="number" formControlName="price" class="form-control" required>
+        <div *ngIf="productForm.get('price')?.dirty && !productForm.get('price')?.valid">
+            <span style="color: red;" *ngIf="productForm.get('price')?.errors?.['required']">Price không được bỏ trống</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Đánh giá</label>
+        <input type="number" formControlName="starRating" class="form-control" required>
+        <div *ngIf="productForm.get('starRating')?.dirty && !productForm.get('starRating')?.valid">
+            <span style="color: red;" *ngIf="productForm.get('starRating')?.errors?.['required']">StarRating không được bỏ trống</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Ảnh sản phẩm</label>
+        <input type="text" formControlName="imageUrl" class="form-control" required>
+        <div *ngIf="productForm.get('imageUrl')?.dirty && !productForm.get('imageUrl')?.valid">
+            <span style="color: red;" *ngIf="productForm.get('imageUrl')?.errors?.['required']">ImageUrl không được bỏ trống</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Thêm sản phẩm</button>
+    <button class="btn btn-secondary" style="margin-left: 10px;" (click)="lamLai()">Bỏ qua</button>
+</form>
+<div class="d-flex justify-content-end align-items-center">
+    <a href="#" class="btn" id="admin" routerLink="/admin">
+      <i class="fa fa-lock"></i> <span> Admin</span> 
+    </a>
+</div>

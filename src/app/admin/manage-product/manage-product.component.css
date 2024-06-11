@@ -1,0 +1,12 @@
+#form-product {
+    width: 500px;
+}
+#form-product .form-group {
+    margin: 15px 0;
+}
+#form-product .ng-dirty.ng-touched.ng-invalid {
+    border-color: red;
+}
+#admin:hover {
+    color: red;
+}
